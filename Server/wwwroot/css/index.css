@@ -1,0 +1,258 @@
+/* line 5, C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 4, ../sass/index.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 7, ../sass/index.scss */
+html {
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 11, ../sass/index.scss */
+body {
+  background-color: #373d41;
+  font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, "Microsoft YaHei";
+}
+
+/* line 15, ../sass/index.scss */
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* line 19, ../sass/index.scss */
+span {
+  letter-spacing: 0.2em;
+}
+
+/* line 22, ../sass/index.scss */
+header {
+  height: 50px;
+  background: #373d41;
+}
+/* line 26, ../sass/index.scss */
+header nav {
+  float: right;
+  height: 100%;
+}
+/* line 30, ../sass/index.scss */
+header nav .nav-item {
+  float: right;
+  position: relative;
+}
+/* line 35, ../sass/index.scss */
+header nav .nav-item:hover .nav-dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+}
+/* line 41, ../sass/index.scss */
+header nav .nav-item .nav-item-toggle {
+  height: 50px;
+  padding: 0 12px;
+  display: block;
+  font-size: 14px;
+  line-height: 50px;
+}
+/* line 48, ../sass/index.scss */
+header nav .nav-item .nav-item-toggle:hover {
+  background-color: #2a2f32;
+}
+/* line 52, ../sass/index.scss */
+header nav .nav-item .nav-item-toggle .nav-user-avator {
+  width: 36px;
+  height: 36px;
+  -moz-border-radius: 18px;
+  -webkit-border-radius: 18px;
+  border-radius: 18px;
+  vertical-align: middle;
+}
+/* line 60, ../sass/index.scss */
+header nav .nav-item .nav-dropdown-menu {
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+}
+/* line 71, ../sass/index.scss */
+.nav-user .nav-user-info {
+  padding-top: 16px;
+  border-bottom: 1px solid #eaeaea;
+  text-align: center;
+}
+/* line 76, ../sass/index.scss */
+.nav-user .nav-user-info p {
+  margin: 8px 0;
+}
+/* line 81, ../sass/index.scss */
+.nav-user .nav-user-contorl {
+  width: 270px;
+  margin: 8px 0;
+  padding: 8px 15px;
+  display: inline-block;
+}
+/* line 87, ../sass/index.scss */
+.nav-user .nav-user-contorl .topbar-user-entrance {
+  width: 80px;
+  height: 80px;
+  float: left;
+  color: #333;
+  text-align: center;
+  -moz-transition: background 0.15s;
+  -o-transition: background 0.15s;
+  -webkit-transition: background 0.15s;
+  transition: background 0.15s;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+/* line 96, ../sass/index.scss */
+.nav-user .nav-user-contorl .topbar-user-entrance:hover {
+  background: #f5f5f5;
+}
+/* line 100, ../sass/index.scss */
+.nav-user .nav-user-contorl .topbar-user-entrance i {
+  font-size: 20px;
+  margin: 8px auto 4px;
+  width: 40px;
+  height: 40px;
+  display: block;
+  line-height: 40px;
+  color: #788d9b;
+}
+/* line 110, ../sass/index.scss */
+.nav-user .nav-user-contorl .topbar-user-entrance span {
+  letter-spacing: .02em;
+  text-decoration: none;
+}
+
+/* line 123, ../sass/index.scss */
+.sidebar {
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+}
+/* line 129, ../sass/index.scss */
+.sidebar .sidebar-content {
+  width: 180px;
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+/* line 136, ../sass/index.scss */
+.sidebar-nav {
+  width: 100%;
+}
+/* line 139, ../sass/index.scss */
+.sidebar-nav .sidebar-title {
+  height: 40px;
+  background: #42485b;
+  color: #fff;
+  line-height: 40px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+/* line 148, ../sass/index.scss */
+.sidebar-nav .sidebar-title:hover {
+  background: #00c1de;
+}
+/* line 152, ../sass/index.scss */
+.sidebar-nav .sidebar-title i {
+  display: inline-block;
+  margin: 0 8px 0 20px;
+  vertical-align: middle;
+  line-height: 1;
+  -moz-transition: -moz-transform 0.12s;
+  -o-transition: -o-transform 0.12s;
+  -webkit-transition: -webkit-transform 0.12s;
+  transition: transform 0.12s;
+}
+/* line 160, ../sass/index.scss */
+.sidebar-nav .sidebar-title span {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: .02em;
+}
+
+/* line 170, ../sass/index.scss */
+.body-content {
+  position: absolute;
+  top: 50px;
+  bottom: 0px;
+  left: 180px;
+  background-color: #fff;
+  width: 100%;
+}

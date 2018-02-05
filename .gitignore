@@ -1,0 +1,8 @@
+
+*.cache
+*.scssc
+Server/Migrations/
+Server/bin/
+Server/obj/
+Server/wwwroot/node_modules/
+.vs/

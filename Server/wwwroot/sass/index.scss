@@ -1,0 +1,177 @@
+﻿@import 'compass/css3';
+@import 'compass/reset';
+
+*{
+    box-sizing:border-box;
+}
+html {
+    font-size: 62.5%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+    background-color: rgb(55, 61, 65);
+    font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, "Microsoft YaHei";
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+span{
+    letter-spacing:0.2em;
+}
+header {
+    height: 50px;
+    background: #373d41;
+
+    nav {
+        float: right;
+        height: 100%;
+
+        .nav-item {
+            float: right;
+            position: relative;
+
+            &:hover {
+                .nav-dropdown-menu {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+
+            .nav-item-toggle {
+                height: 50px;
+                padding: 0 12px;
+                display: block;
+                font-size: 14px;
+                line-height: 50px;
+
+                &:hover {
+                    background-color: #2a2f32;
+                }
+
+                .nav-user-avator {
+                    width: 36px;
+                    height: 36px;
+                    @include border-radius(18px);
+                    vertical-align: middle;
+                }
+            }
+            //下拉菜单通用样式
+            .nav-dropdown-menu {
+                @include box-shadow(0 1px 3px rgba(0,0,0,.2));
+                z-index: 1000;
+                padding: 0;
+                position: absolute;
+                right: 0;
+                visibility: hidden;
+                opacity: 0;
+            }
+            //下拉菜单用户信息部分
+            @at-root .nav-user {
+                .nav-user-info {
+                    padding-top: 16px;
+                    border-bottom: 1px solid #eaeaea;
+                    text-align: center;
+
+                    p {
+                        margin: 8px 0;
+                    }
+                }
+
+                .nav-user-contorl {
+                    width: 270px;
+                    margin: 8px 0;
+                    padding: 8px 15px;
+                    display: inline-block;
+
+                    .topbar-user-entrance {
+                        width: 80px;
+                        height: 80px;
+                        float: left;
+                        color: #333;
+                        text-align: center;
+                        @include transition(background .15s);
+                        @include border-radius(2px);
+
+                        &:hover {
+                            background: #f5f5f5;
+                        }
+
+                        i {
+                            font-size: 20px;
+                            margin: 8px auto 4px;
+                            width: 40px;
+                            height: 40px;
+                            display: block;
+                            line-height: 40px;
+                            color: #788d9b;
+                        }
+
+                        span {
+                            letter-spacing: .02em;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//左侧带单样式
+.sidebar {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+
+    .sidebar-content {
+        width: 180px;
+        height: 100%;
+        overflow: auto;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        //单独的菜单项样式
+        @at-root .sidebar-nav {
+            width: 100%;
+
+            .sidebar-title {
+                height: 40px;
+                background: #42485b;
+                color: #fff;
+                line-height: 40px;
+                position: relative;
+                cursor: pointer;
+                overflow: hidden;
+
+                &:hover {
+                    background: #00c1de;
+                }
+
+                i {
+                    display: inline-block;
+                    margin: 0 8px 0 20px;
+                    vertical-align: middle;
+                    line-height:1;
+                    @include transition(transform .12s);
+                }
+
+                span {
+                    text-rendering: optimizeLegibility;
+                    -webkit-font-smoothing: antialiased;
+                    letter-spacing: .02em;
+                }
+            }
+        }
+    }
+}
+
+.body-content {
+    position: absolute;
+    top: 50px;
+    bottom: 0px;
+    left: 180px;
+    background-color: #fff;
+    width: 100%;
+}
