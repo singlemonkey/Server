@@ -34,25 +34,35 @@ ReactDOM.render(
 );
 
 //渲染左侧菜单栏
-const menuItems = [
+const menus = [
     {
         name: '博客管理',
         items: [
             {
                 name:'博客列表',
-                url: '/Blog/BlogList',
+                url: '/Blog/Index',
                 icon:'icon-bloglist'
             },
             {
                 name: '发布博客',
-                url: '/Blog/BlogEdit',
+                url: '/Blog/Add',
                 icon: 'icon-blogedit'
             }
+        ]
+    },
+    {
+        name: '系统设置',
+        items: [
+            {
+                name: '个人信息',
+                url: '/Admin/Index',
+                icon: 'icon-user'
+            },
         ]
     }
 ]
 ReactDOM.render(
-    <Sidebar menu={menuItems} />,
+    <Sidebar menus={menus} />,
     document.getElementById('sidebar')
 );
 

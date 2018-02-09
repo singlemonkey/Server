@@ -16,8 +16,10 @@ a {
     cursor: pointer;
     text-decoration: none;
 }
-span{
-    letter-spacing:0.2em;
+span {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: .02em;
 }
 header {
     height: 50px;
@@ -125,6 +127,11 @@ header {
     top: 50px;
     bottom: 0;
     left: 0;
+    background-color: #333744;
+
+    .sidebar-trans {
+        @include transition(max-height .12s ease);
+    }
 
     .sidebar-content {
         width: 180px;
@@ -150,17 +157,69 @@ header {
                 }
 
                 i {
+                    font-size: 12px;
                     display: inline-block;
                     margin: 0 8px 0 20px;
                     vertical-align: middle;
-                    line-height:1;
+                    line-height: 1;
                     @include transition(transform .12s);
                 }
+            }
 
-                span {
-                    text-rendering: optimizeLegibility;
-                    -webkit-font-smoothing: antialiased;
-                    letter-spacing: .02em;
+            ul {
+                width: 200px;
+                overflow: hidden;
+
+                li {
+                    a {
+                        display: block;
+                        width: 180px;
+                        height: 40px;
+                        line-height: 40px;
+                        overflow: hidden;
+
+                        .nav-icon {
+                            width: 50px;
+                            text-align: center;
+                            font-size: 16px;
+                            float: left;
+                            color: #aeb9c2;
+                            height: 40px;
+                            line-height: 40px;
+
+                            i {
+                                font-size: 16px;
+                            }
+                        }
+
+                        .nav-title {
+                            float: left;
+                            overflow: hidden;
+                            color: #fff;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            display: block;
+                            width: 130px;
+                        }
+
+                        &:hover {
+                            background: #4a5064;
+
+                            .nav-icon {
+                                color: #fff;
+                            }
+                        }
+                    }
+
+                    &.active {
+                        a {
+                            background: #00c1de;
+                        }
+
+                        .nav-icon {
+                            color: #fff;
+                        }
+                    }
                 }
             }
         }
@@ -172,6 +231,6 @@ header {
     top: 50px;
     bottom: 0px;
     left: 180px;
+    right:0;
     background-color: #fff;
-    width: 100%;
 }

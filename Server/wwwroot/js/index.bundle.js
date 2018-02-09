@@ -436,6 +436,52 @@ module.exports = emptyObject;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+function checkDCE() {
+  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+  if (
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
+  ) {
+    return;
+  }
+  if (process.env.NODE_ENV !== 'production') {
+    // This branch is unreachable because this function is only called
+    // in production, but the condition is true only in development.
+    // Therefore if the branch is still here, dead code elimination wasn't
+    // properly applied.
+    // Don't change the message. React DevTools relies on it. Also make sure
+    // this message doesn't occur elsewhere in this function, or it will cause
+    // a false positive.
+    throw new Error('^_^');
+  }
+  try {
+    // Verify that the code above has been dead code eliminated (DCE'd).
+    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
+  } catch (err) {
+    // DevTools shouldn't crash React, no matter what.
+    // We should still report in case we break this code.
+    console.error(err);
+  }
+}
+
+if (process.env.NODE_ENV === 'production') {
+  // DCE check should happen before ReactDOM bundle executes so that
+  // DevTools can report bad minification during injection.
+  checkDCE();
+  module.exports = __webpack_require__(16);
+} else {
+  module.exports = __webpack_require__(22);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -492,7 +538,7 @@ module.exports = invariant;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -561,52 +607,6 @@ module.exports = warning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-function checkDCE() {
-  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-  if (
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
-  ) {
-    return;
-  }
-  if (process.env.NODE_ENV !== 'production') {
-    // This branch is unreachable because this function is only called
-    // in production, but the condition is true only in development.
-    // Therefore if the branch is still here, dead code elimination wasn't
-    // properly applied.
-    // Don't change the message. React DevTools relies on it. Also make sure
-    // this message doesn't occur elsewhere in this function, or it will cause
-    // a false positive.
-    throw new Error('^_^');
-  }
-  try {
-    // Verify that the code above has been dead code eliminated (DCE'd).
-    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
-  } catch (err) {
-    // DevTools shouldn't crash React, no matter what.
-    // We should still report in case we break this code.
-    console.error(err);
-  }
-}
-
-if (process.env.NODE_ENV === 'production') {
-  // DCE check should happen before ReactDOM bundle executes so that
-  // DevTools can report bad minification during injection.
-  checkDCE();
-  module.exports = __webpack_require__(16);
-} else {
-  module.exports = __webpack_require__(22);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -621,8 +621,8 @@ if (process.env.NODE_ENV === 'production') {
 
 
 if (process.env.NODE_ENV !== 'production') {
-  var invariant = __webpack_require__(5);
-  var warning = __webpack_require__(6);
+  var invariant = __webpack_require__(6);
+  var warning = __webpack_require__(7);
   var ReactPropTypesSecret = __webpack_require__(19);
   var loggedTypeFailures = {};
 }
@@ -986,7 +986,7 @@ module.exports = focusNode;
 "use strict";
 
 
-var _reactDom = _interopRequireDefault(__webpack_require__(7));
+var _reactDom = _interopRequireDefault(__webpack_require__(5));
 
 var _react = _interopRequireWildcard(__webpack_require__(2));
 
@@ -1025,21 +1025,28 @@ _reactDom.default.render(_react.default.createElement(_topbar.default, {
 }), document.getElementById('topbar')); //渲染左侧菜单栏
 
 
-var menuItems = [{
+var menus = [{
   name: '博客管理',
   items: [{
     name: '博客列表',
-    url: '/Blog/BlogList',
+    url: '/Blog/Index',
     icon: 'icon-bloglist'
   }, {
     name: '发布博客',
-    url: '/Blog/BlogEdit',
+    url: '/Blog/Add',
     icon: 'icon-blogedit'
+  }]
+}, {
+  name: '系统设置',
+  items: [{
+    name: '个人信息',
+    url: '/Admin/Index',
+    icon: 'icon-user'
   }]
 }];
 
 _reactDom.default.render(_react.default.createElement(_sidebar.default, {
-  menu: menuItems
+  menus: menus
 }), document.getElementById('sidebar'));
 
 /***/ }),
@@ -1330,8 +1337,8 @@ if (process.env.NODE_ENV !== "production") {
 
 var _assign = __webpack_require__(3);
 var emptyObject = __webpack_require__(4);
-var invariant = __webpack_require__(5);
-var warning = __webpack_require__(6);
+var invariant = __webpack_require__(6);
+var warning = __webpack_require__(7);
 var emptyFunction = __webpack_require__(1);
 var checkPropTypes = __webpack_require__(8);
 
@@ -2769,8 +2776,8 @@ if (process.env.NODE_ENV !== "production") {
 'use strict';
 
 var React = __webpack_require__(2);
-var invariant = __webpack_require__(5);
-var warning = __webpack_require__(6);
+var invariant = __webpack_require__(6);
+var warning = __webpack_require__(7);
 var ExecutionEnvironment = __webpack_require__(9);
 var _assign = __webpack_require__(3);
 var emptyFunction = __webpack_require__(1);
@@ -18318,7 +18325,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(__webpack_require__(2));
 
-var _reactDom = _interopRequireDefault(__webpack_require__(7));
+var _reactDom = _interopRequireDefault(__webpack_require__(5));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18452,7 +18459,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(__webpack_require__(2));
 
-var _reactDom = _interopRequireDefault(__webpack_require__(7));
+var _reactDom = _interopRequireDefault(__webpack_require__(5));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18470,24 +18477,55 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+//整体的左侧菜单栏
 var Sidebar =
 /*#__PURE__*/
 function (_Component) {
   _inherits(Sidebar, _Component);
 
   function Sidebar(props) {
+    var _this;
+
     _classCallCheck(this, Sidebar);
 
-    return _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).call(this, props));
+    _this = _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).call(this, props));
+    _this.state = {
+      currentMenu: localStorage.getItem('currentMenu'),
+      currentItem: localStorage.getItem('currentItem')
+    };
+    _this.onCurrentMenuChange = _this.onCurrentMenuChange.bind(_assertThisInitialized(_this));
+    _this.onCurrentItemChange = _this.onCurrentItemChange.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Sidebar, [{
+    key: "onCurrentMenuChange",
+    value: function onCurrentMenuChange(menuName) {
+      localStorage.setItem('currentMenu', menuName);
+      this.setState({
+        currentMenu: menuName
+      });
+    }
+  }, {
+    key: "onCurrentItemChange",
+    value: function onCurrentItemChange(itemName) {
+      localStorage.setItem('currentItem', itemName);
+    }
+  }, {
     key: "render",
     value: function render() {
-      var menus = this.props.menu.map(function (menu) {
+      var _this2 = this;
+
+      var menus = this.props.menus.map(function (menu) {
         return _react.default.createElement(MenuItem, {
           key: menu.name,
-          menu: menu
+          menuItem: menu,
+          currentMenu: _this2.state.currentMenu,
+          currentItem: _this2.state.currentItem,
+          onCurrentMenuChange: _this2.onCurrentMenuChange,
+          onCurrentItemChange: _this2.onCurrentItemChange
         });
       });
       return menus;
@@ -18495,7 +18533,8 @@ function (_Component) {
   }]);
 
   return Sidebar;
-}(_react.Component);
+}(_react.Component); //子模块菜单
+
 
 exports.default = Sidebar;
 
@@ -18505,25 +18544,134 @@ function (_Component2) {
   _inherits(MenuItem, _Component2);
 
   function MenuItem(props) {
+    var _this3;
+
     _classCallCheck(this, MenuItem);
 
-    return _possibleConstructorReturn(this, (MenuItem.__proto__ || Object.getPrototypeOf(MenuItem)).call(this, props));
+    _this3 = _possibleConstructorReturn(this, (MenuItem.__proto__ || Object.getPrototypeOf(MenuItem)).call(this, props));
+    _this3.state = {
+      isActive: _this3.props.currentMenu == _this3.props.menuItem.name ? true : false
+    };
+    _this3.toggleMenu = _this3.toggleMenu.bind(_assertThisInitialized(_this3));
+    return _this3;
   }
 
   _createClass(MenuItem, [{
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(nextProps) {
+      //如果点击的不是自己，则将自己关闭
+      if (nextProps.currentMenu != this.props.menuItem.name) {
+        this.setState({
+          isActive: false
+        });
+      }
+    }
+  }, {
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate(nextProps, nextState) {
+      //如果该菜单之前是关闭的，且此次依然关闭，则不更新
+      var menuName = this.props.menuItem.name;
+
+      if (!this.state.isActive && nextProps.currentMenu != menuName) {
+        return false;
+      }
+
+      return true;
+    }
+  }, {
+    key: "toggleMenu",
+    value: function toggleMenu() {
+      this.props.onCurrentMenuChange(this.props.menuItem.name);
+      this.setState({
+        isActive: !this.state.isActive
+      });
+    }
+  }, {
+    key: "getMaxHeight",
+    value: function getMaxHeight() {
+      //如果菜单被选中，打开菜单
+      if (this.state.isActive) {
+        var len = this.props.menuItem.items.length;
+        return len * 40 + 2;
+      } else {
+        return 0;
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this4 = this;
+
+      var menuItems = this.props.menuItem.items.map(function (item) {
+        return _react.default.createElement(Item, {
+          key: item.name,
+          item: item,
+          currentItem: _this4.props.currentItem,
+          onCurrentItemChange: _this4.props.onCurrentItemChange
+        });
+      });
+      var maxHeight = this.getMaxHeight();
       return _react.default.createElement("div", {
         className: "sidebar-nav"
       }, _react.default.createElement("div", {
-        className: "sidebar-title sidebar-trans"
+        className: "sidebar-title sidebar-trans",
+        onClick: this.toggleMenu
       }, _react.default.createElement("i", {
         className: "iconfont icon-arrow-right"
-      }), _react.default.createElement("span", null, this.props.menu.name)), _react.default.createElement("ul", null));
+      }), _react.default.createElement("span", null, this.props.menuItem.name)), _react.default.createElement("ul", {
+        className: "sidebar-trans",
+        style: {
+          maxHeight: maxHeight
+        }
+      }, menuItems));
     }
   }]);
 
   return MenuItem;
+}(_react.Component); //二级菜单项
+//TODO:为二级菜单添加active状态管理
+
+
+var Item =
+/*#__PURE__*/
+function (_Component3) {
+  _inherits(Item, _Component3);
+
+  function Item(props) {
+    var _this5;
+
+    _classCallCheck(this, Item);
+
+    _this5 = _possibleConstructorReturn(this, (Item.__proto__ || Object.getPrototypeOf(Item)).call(this, props));
+    _this5.toggleItem = _this5.toggleItem.bind(_assertThisInitialized(_this5));
+    return _this5;
+  }
+
+  _createClass(Item, [{
+    key: "toggleItem",
+    value: function toggleItem() {
+      this.props.onCurrentItemChange(this.props.item.name);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var isActive = this.props.currentItem == this.props.item.name ? true : false;
+      return _react.default.createElement("li", {
+        className: isActive ? 'active' : ''
+      }, _react.default.createElement("a", {
+        href: this.props.item.url,
+        onClick: this.toggleItem
+      }, _react.default.createElement("div", {
+        className: "nav-icon"
+      }, _react.default.createElement("i", {
+        className: "iconfont ".concat(this.props.item.icon)
+      })), _react.default.createElement("span", {
+        className: "nav-title"
+      }, this.props.item.name)));
+    }
+  }]);
+
+  return Item;
 }(_react.Component);
 
 /***/ })
